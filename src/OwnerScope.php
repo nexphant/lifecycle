@@ -11,11 +11,24 @@ class OwnerScope
     protected bool $closed = false;
     protected bool $cancelled = false;
     protected ?OwnerScope $parent = null;
+    protected float $createdAt;
+    protected float $closedAt = 0.0;
 
     public function __construct(?OwnerScope $parent = null)
     {
         $this->parent = $parent;
         $this->cancelled = $parent?->isCancelled() ?? false;
+        $this->createdAt = microtime(true);
+    }
+    
+    public function metrics(): array
+    {
+        return [
+            'resource_count' => count($this->resources),
+            'child_count' => count($this->children),
+            'duration_ms' => $this->closedAt > 0 ? ($this->closedAt - $this->createdAt) * 1000 : 0,
+            'cancelled' => $this->cancelled,
+        ];
     }
 
     public function own(mixed $resource): mixed
@@ -94,6 +107,7 @@ class OwnerScope
         }
 
         $this->closed = true;
+        $this->closedAt = microtime(true);
         $this->parent = null;
     }
 
@@ -110,7 +124,9 @@ class OwnerScope
     protected function assertOpen(): void
     {
         if ($this->closed) {
-            throw new \RuntimeException('Owner closed');
+            if (class_exists('\Nexph\Lifecycle\RuntimeDiscipline') && \Nexph\Lifecycle\RuntimeDiscipline::enabled()) {
+                throw new \RuntimeException('Owner closed');
+            }
         }
     }
 }

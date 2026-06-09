@@ -17,6 +17,11 @@ class RuntimeDiscipline
         self::$resourceTrace = (bool) ($config['resource_trace'] ?? self::$resourceTrace);
         self::$leakDetection = (bool) ($config['leak_detection'] ?? self::$leakDetection);
     }
+    
+    public static function enabled(): bool
+    {
+        return self::$enabled;
+    }
 
     public static function enable(): void
     {

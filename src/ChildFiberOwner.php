@@ -4,19 +4,16 @@ namespace Nexph\Lifecycle;
 
 class ChildFiberOwner extends AbstractOwner
 {
-    private ?Owner $parent;
-
-    public function __construct(?Owner $parent = null)
+    public function __construct(?OwnerScope $parent = null)
     {
-        $this->parent = $parent;
+        parent::__construct($parent);
     }
 
-    public function own(mixed $resource): void
+    public function own(mixed $resource): mixed
     {
-        $this->assertOpen();
-        if ($this->parent && $this->parent->isClosed()) {
+        if ($this->parent?->isClosed()) {
             throw new \RuntimeException('Parent owner closed');
         }
-        $this->resources[] = $resource;
+        return parent::own($resource);
     }
 }

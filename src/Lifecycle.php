@@ -29,7 +29,7 @@ class Lifecycle
         return new MessageOwner();
     }
 
-    public static function childFiber(?Owner $parent = null): ChildFiberOwner
+    public static function childFiber(?OwnerScope $parent = null): ChildFiberOwner
     {
         return new ChildFiberOwner($parent);
     }

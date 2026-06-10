@@ -124,9 +124,7 @@ class OwnerScope
     protected function assertOpen(): void
     {
         if ($this->closed) {
-            if (class_exists('\Nexph\Lifecycle\RuntimeDiscipline') && \Nexph\Lifecycle\RuntimeDiscipline::enabled()) {
-                throw new \RuntimeException('Owner closed');
-            }
+            throw new \RuntimeException('Owner closed');
         }
     }
 }

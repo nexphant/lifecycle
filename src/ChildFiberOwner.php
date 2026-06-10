@@ -15,15 +15,14 @@ class ChildFiberOwner extends AbstractOwner
     public function own(mixed $resource): mixed
     {
         if ($this->parent?->isClosed()) {
-            if (RuntimeDiscipline::enabled()) {
-                throw new \RuntimeException('Parent owner closed');
-            }
+            throw new \RuntimeException('Parent owner closed');
         }
         return parent::own($resource);
     }
     
     public function spawn(callable $fn): ChildFiberOwner
     {
+        $this->assertOpen();
         $childCtx = new ChildFiberOwner($this);
         $this->child($childCtx);
         

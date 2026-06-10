@@ -46,4 +46,22 @@ class RuntimeDiscipline
         self::$resourceTrace = false;
         self::$leakDetection = false;
     }
+    
+    public static function assertDetachedOwner(): void
+    {
+        if (!self::$enabled) {
+            return;
+        }
+        throw new \RuntimeException('Detached fiber requires explicit owner');
+    }
+    
+    public static function assertOwnerOpen(OwnerScope $owner): void
+    {
+        if (!self::$enabled) {
+            return;
+        }
+        if ($owner->isClosed()) {
+            throw new \RuntimeException('Owner closed');
+        }
+    }
 }

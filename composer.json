@@ -1,6 +1,6 @@
 {
     "name": "nexphant/lifecycle",
-    "description": "nexphant Lifecycle Engine",
+    "description": "Nexphant Lifecycle Engine",
     "type": "library",
     "license": "MIT",
     "autoload": {

@@ -1,11 +1,11 @@
 {
-    "name": "nexph/lifecycle",
-    "description": "Nexph Lifecycle Engine",
+    "name": "nexphant/lifecycle",
+    "description": "nexphant Lifecycle Engine",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Nexph\\Lifecycle\\": "src/"
+            "nexphant\\Lifecycle\\": "src/"
         }
     },
     "require": {

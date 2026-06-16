@@ -1,11 +1,11 @@
-# Nexph Lifecycle Engine
+# nexphant Lifecycle Engine
 
 Ownership, resource lifecycle, and cleanup management.
 
 ## Installation
 
 ```bash
-composer require nexph/lifecycle
+composer require nexphant/lifecycle
 ```
 
 ## License

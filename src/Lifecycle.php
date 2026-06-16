@@ -1,6 +1,6 @@
 <?php
 
-namespace Nexph\Lifecycle;
+namespace nexphant\Lifecycle;
 
 class Lifecycle
 {

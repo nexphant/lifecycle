@@ -1,6 +1,6 @@
 <?php
 
-namespace Nexph\Lifecycle\Contracts;
+namespace nexphant\Lifecycle\Contracts;
 
 interface OwnedResource
 {

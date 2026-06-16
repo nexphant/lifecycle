@@ -1,6 +1,6 @@
 <?php
 
-namespace nexphant\Lifecycle;
+namespace Nexphant\Lifecycle;
 
 abstract class AbstractOwner extends OwnerScope implements Owner
 {

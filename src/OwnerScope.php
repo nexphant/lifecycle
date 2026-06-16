@@ -1,8 +1,8 @@
 <?php
 
-namespace nexphant\Lifecycle;
+namespace Nexphant\Lifecycle;
 
-use nexphant\Lifecycle\Contracts\OwnedResource;
+use Nexphant\Lifecycle\Contracts\OwnedResource;
 
 class OwnerScope
 {

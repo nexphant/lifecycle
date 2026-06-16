@@ -1,6 +1,6 @@
 <?php
 
-namespace nexphant\Lifecycle;
+namespace Nexphant\Lifecycle;
 
 class MessageOwner extends AbstractOwner
 {

@@ -1,4 +1,4 @@
-# nexphant Lifecycle Engine
+# Nexphant Lifecycle Engine
 
 Ownership, resource lifecycle, and cleanup management.
 
